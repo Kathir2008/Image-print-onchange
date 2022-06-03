@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <title>Image Printer</title>
+  <style>
+      #ImageField{
+          height: 500px;
+          width: 1000px;
+      }
+      #InputField{
+        margin: 25px;
+      }
+  </style>
+</head>
+<body>
+  <h1 class="text-white bg-dark text-center" id="Text">Image Printer</h1>
+  <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+            <img src="wallpaper.jpg" class="rounded" id="ImageField" alt="Some Mistake"  />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+            <input type="file" name="InputField" id="InputField" class="form-control">
+        </div>
+    </div>
+  </div>
+</body>
+<script src="lib/jquery.min.js"></script>
+<script src="lib/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        InputField.onchange = event => {
+            const [file] = InputField.files
+            if(file){
+                ImageField.src = URL.createObjectURL(file)
+            }
+        }
+    })
+</script>
+</html>
